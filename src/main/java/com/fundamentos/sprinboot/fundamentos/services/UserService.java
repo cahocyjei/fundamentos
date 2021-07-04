@@ -34,4 +34,24 @@ public class UserService {
 		return userRepository.findAll();
 	}
 
+	public User saveCreateUser(User user){
+		return userRepository.save(user);
+	}
+
+	public void delete(long id) {
+		userRepository.deleteById (id);
+	}
+
+	public User update(User newUser, long id) {
+		return
+				userRepository.findById(id)
+				.map(user->{
+					user.setName(newUser.getName());
+					user.setEmail(newUser.getEmail());
+					user.setBirthDate(newUser.getBirthDate());
+					return userRepository.save(user);
+				}
+		).get();
+	}
+
 }

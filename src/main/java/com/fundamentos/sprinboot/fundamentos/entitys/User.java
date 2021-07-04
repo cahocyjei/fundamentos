@@ -14,6 +14,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
@@ -32,7 +33,7 @@ public class User {
 	private LocalDate birthDate;
 	
 	@OneToMany(mappedBy=("user"),cascade= CascadeType.ALL, fetch= FetchType.EAGER )
-	@JsonManagedReference
+	@JsonIgnore //@JsonManagedReference
 	private List<Post> listPost= new ArrayList<>();
 	
 
@@ -47,7 +48,10 @@ public class User {
 		this.birthDate = birthDate;
 	}
 
-	public long getId() {
+    public User(long id) {
+    }
+
+    public long getId() {
 		return id;
 	}
 

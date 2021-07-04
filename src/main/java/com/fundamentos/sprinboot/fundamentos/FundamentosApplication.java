@@ -106,7 +106,7 @@ public class FundamentosApplication implements CommandLineRunner {
 	private void saveWithErrorTransactional() {
 		User user1 = new User("Transactional1","transactional1@hotmail.com",LocalDate.now());
 		User user2 = new User("Transactional2","transactional2@hotmail.com",LocalDate.now());
-		User user3 = new User("Transactional3","transactional1@hotmail.com",LocalDate.now());
+		User user3 = new User("Transactional3","transactional3@hotmail.com",LocalDate.now());
 		User user4 = new User("Transactional4","transactional4@hotmail.com",LocalDate.now());
 		
 		List<User> users = Arrays.asList(user1,user2,user3,user4);
